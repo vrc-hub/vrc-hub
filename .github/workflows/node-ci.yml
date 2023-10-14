@@ -1,0 +1,15 @@
+name: Node CI
+on: [pull_request]
+
+jobs:
+  check-linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/check@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check formatting
+        run: pnpm run lint
