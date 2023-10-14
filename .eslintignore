@@ -5,7 +5,11 @@ node_modules
 /package
 .env
 .env.*
+.direnv
 !.env.example
+
+/src-tauri
+/src/lib/api/spec.ts
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

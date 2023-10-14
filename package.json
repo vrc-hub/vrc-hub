@@ -1,8 +1,8 @@
 {
 	"name": "vrc-hub",
 	"version": "0.0.1",
-  "author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
-  "license": "BSD-3-Clause",
+	"author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
+	"license": "BSD-3-Clause",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -11,7 +11,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write . && eslint . --fix"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^2.0.3",
