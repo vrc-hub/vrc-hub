@@ -11,13 +11,15 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write . && eslint . --fix"
+		"format": "prettier --plugin-search-dir . --write . && eslint . --fix",
+		"struct": "openapi-typescript https://vrchatapi.github.io/specification/openapi.yaml --output src/lib/api/vrchat/spec.ts"
 	},
 	"devDependencies": {
 		"@melt-ui/pp": "^0.1.2",
 		"@melt-ui/svelte": "^0.55.1",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
+		"@tauri-apps/api": "^1.5.0",
 		"@tauri-apps/cli": "^1.5.2",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
@@ -27,6 +29,8 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
 		"lucide-svelte": "^0.287.0",
+		"openapi-typescript": "^6.7.0",
+		"openapi-typescript-helpers": "^0.0.4",
 		"postcss": "^8.4.31",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",

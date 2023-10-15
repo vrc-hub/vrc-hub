@@ -11,5 +11,5 @@ export const accounts = persisted<Account[]>('accounts', []);
 export const activeAccount = persisted<number | null>('activeAccount', null);
 
 export const currentAccount = derived([accounts, activeAccount], ($values, set) => {
-  set($values[0][$values[1]?? -1])
-})
+	set($values[0][$values[1] ?? -1]);
+});

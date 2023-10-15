@@ -1,7 +1,19 @@
 <script lang="ts">
+	import { logIn } from '$lib/api/vrchat/impl/auth';
 	import { ArrowLeft, Rocket } from 'lucide-svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+
+	let username = '';
+	let password = '';
+
+	const submitLogIn = async () => {
+		const response = await logIn(username, password);
+
+		if (response.error) {
+			console.error(response);
+		} else console.log(response);
+	};
 </script>
 
 <div class="hero min-h-screen bg-base-200">
@@ -22,17 +34,18 @@
 			</a>
 		</div>
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-			<form class="card-body">
+			<form class="card-body" on:submit|preventDefault={submitLogIn}>
 				<div class="form-control">
-					<label class="label" for="email">
-						<span class="label-text">Email</span>
+					<label class="label" for="username">
+						<span class="label-text">Username</span>
 					</label>
 					<input
 						class="input input-bordered"
-						id="email"
-						type="email"
-						placeholder="email"
+						id="username"
+						type="text"
+						placeholder="username"
 						required
+						bind:value={username}
 					/>
 				</div>
 				<div class="form-control">
@@ -45,6 +58,7 @@
 						type="password"
 						placeholder="password"
 						required
+						bind:value={password}
 					/>
 					<span class="label">
 						<a
