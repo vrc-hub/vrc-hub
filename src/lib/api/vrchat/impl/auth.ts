@@ -1,5 +1,5 @@
 import type { Response } from '@tauri-apps/api/http';
-import { GET, POST } from '..';
+import { useClient } from '..';
 
 export type LoginResultSuccess = {
 	result: 'success';
@@ -26,7 +26,7 @@ export type TwoFactorResult = {
 };
 
 export const logIn = async (username: string, password: string): Promise<LoginResult> => {
-	const { data, error, response } = await GET('/auth/user', {
+	const { data, error, response } = await useClient().GET('/auth/user', {
 		headers: {
 			Accept: '*/*',
 			Authorization: `Basic ${btoa(
@@ -47,6 +47,7 @@ export const logIn = async (username: string, password: string): Promise<LoginRe
 };
 
 export const twoFactor = async (code: string, type: TwoFactorType, auth: string) => {
+  const {POST} = useClient();
 	switch (type) {
 		case 'totp':
 		default:
@@ -73,7 +74,7 @@ export const twoFactor = async (code: string, type: TwoFactorType, auth: string)
 	}
 };
 
-export const getUserData = (auth: string) => GET("/auth/user", {headers: {
+export const getUserData = (auth: string) => useClient().GET("/auth/user", {headers: {
   Cookie: `auth=${auth}`
 }})
 
