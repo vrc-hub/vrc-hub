@@ -9,8 +9,8 @@ export type Toast = {
 
 export const toasts = writable<Toast[]>([]);
 
-export const showToast = (message: string, type: ToastType = "alert-info", duration = 5000) => {
-  const toast = {message, type};
+export const showToast = (message: string, type: ToastType = 'alert-info', duration = 5000) => {
+	const toast = { message, type };
 	toasts.set([...get(toasts), toast]);
-		setTimeout(() => toasts.set(get(toasts).filter((t) => t !== toast)), duration);
+	setTimeout(() => toasts.set(get(toasts).filter((t) => t !== toast)), duration);
 };

@@ -47,7 +47,7 @@ export const logIn = async (username: string, password: string): Promise<LoginRe
 };
 
 export const twoFactor = async (code: string, type: TwoFactorType, auth: string) => {
-  const {POST} = useClient();
+	const { POST } = useClient();
 	switch (type) {
 		case 'totp':
 		default:
@@ -74,11 +74,15 @@ export const twoFactor = async (code: string, type: TwoFactorType, auth: string)
 	}
 };
 
-export const getUserData = (auth: string) => useClient().GET("/auth/user", {headers: {
-  Cookie: `auth=${auth}`
-}})
+export const getUserData = (auth: string) =>
+	useClient().GET('/auth/user', {
+		headers: {
+			Cookie: `auth=${auth}`
+		}
+	});
 
-export const extractAuthCookie = (response: Response<unknown>) => parseAuthCookie(response.headers['set-cookie'].split(';'));
+export const extractAuthCookie = (response: Response<unknown>) =>
+	parseAuthCookie(response.headers['set-cookie'].split(';'));
 
 const parseAuthCookie = (cookies: string[]) => {
 	for (const cookie of cookies) {
