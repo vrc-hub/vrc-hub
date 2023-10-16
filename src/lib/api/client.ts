@@ -1,6 +1,7 @@
 import {
 	Body,
 	fetch,
+	Response,
 	type FetchOptions as TauriFetchOptions,
 	type RequestOptions as TauriRequestOptions
 } from '@tauri-apps/api/http';
@@ -70,12 +71,12 @@ export type FetchResponse<T> =
 	| {
 			data: FilterKeys<SuccessResponse<ResponseObjectMap<T>>, MediaType>;
 			error?: never;
-			response: Response;
+			response: Response<FilterKeys<SuccessResponse<ResponseObjectMap<T>>, MediaType>>;
 	  }
 	| {
 			data?: never;
 			error: FilterKeys<ErrorResponse<ResponseObjectMap<T>>, MediaType>;
-			response: Response;
+			response: Response<FilterKeys<SuccessResponse<ResponseObjectMap<T>>, MediaType>>;
 	  };
 
 export type RequestOptions<T> = ParamsOption<T> &

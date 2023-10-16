@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Avatar from '$lib/components/content/Avatar.svelte';
+	import AccountCard from '$lib/components/accounts/AccountCard.svelte';
 	import { accounts } from '$lib/stores/accounts';
-	import { ArrowRight, PlusCircle, User2, X } from 'lucide-svelte';
+	import { PlusCircle, User2 } from 'lucide-svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 </script>
@@ -14,20 +14,10 @@
 				<span class="align-middle"> Accounts </span>
 			</h1>
 		</div>
-		{#each $accounts as { identifier, thumbnail }}
-			<div class="card w-full max-w-sm shadow-2xl bg-base-100">
-				<div class="card-body">
-					<div class="flex gap-4 items-center">
-						<Avatar src={thumbnail} fallback={identifier} />
-						<span class="flex-1 text-xl">{identifier}</span>
-						<span><X /></span>
-						<span><ArrowRight /></span>
-					</div>
-				</div>
-			</div>
+		{#each $accounts as account}
+			<AccountCard {account} />
 		{/each}
-
-		<a class="cursor-pointer" href="/accounts/add">
+		<a class="link" href="/accounts/add">
 			<PlusCircle />
 		</a>
 	</div>
