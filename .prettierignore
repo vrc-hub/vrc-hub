@@ -12,6 +12,7 @@ node_modules
 /src/lib/api/vrchat/spec.ts
 
 # Ignore files for PNPM, NPM and YARN
+.pnpm-store
 pnpm-lock.yaml
 package-lock.json
 yarn.lock

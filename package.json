@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
 	"license": "BSD-3-Clause",
+	"packageManager": "pnpm@^8.8.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
