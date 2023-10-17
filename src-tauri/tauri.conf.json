@@ -12,7 +12,19 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "app": {
+        "all": true
+      },
+      "http": {
+        "request": true,
+        "scope": ["https://api.vrchat.cloud/*"]
+      },
+      "os": {
+        "all": true
+      },
+      "shell": {
+        "open": true
+      }
     },
     "bundle": {
       "active": true,
