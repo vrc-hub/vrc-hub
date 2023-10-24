@@ -13,4 +13,3 @@ export const activeAccount = persisted<Account | null>('activeAccount', null);
 export const getActiveAccount = () => get(activeAccount);
 
 export const resetActiveAccount = () => activeAccount.set(null);
-
