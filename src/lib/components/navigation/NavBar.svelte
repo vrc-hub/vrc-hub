@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Bell, Globe, Home, Search, Users2 } from 'lucide-svelte';
+	import { Globe, Home, Users2 } from 'lucide-svelte';
 	import Avatar from '../content/Avatar.svelte';
 	import { getSelfData, getSelfPicture } from '$lib/api/vrchat/impl/self';
 	import { activeAccount } from '$lib/stores/accounts';
@@ -38,13 +38,6 @@
 				<Users2 />
 			</NavBarIcon>
 		</div>
-		<div class="navbar-end">
-			<NavBarIcon tooltip="Search">
-				<Search />
-			</NavBarIcon>
-			<NavBarIcon tooltip="Notifications">
-				<Bell />
-			</NavBarIcon>
-		</div>
+		<div class="navbar-end" />
 	</div>
 </div>
