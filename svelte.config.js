@@ -6,7 +6,7 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	preprocess: sequence([vitePreprocess()]),
 	kit: {
-		adapter: adapter()
+		adapter: adapter({ fallback: 'index.html' })
 	}
 };
 export default config;
