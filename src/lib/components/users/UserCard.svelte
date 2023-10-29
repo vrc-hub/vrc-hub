@@ -6,10 +6,7 @@
 	export let user: LimitedUser | CurrentUser;
 </script>
 
-<a
-	class="card bg-base-200 shadow-xl w-96"
-	href={user.isFriend ? `/friends/${user.id}` : `/users/${user.id}`}
->
+<a class="card bg-base-200 shadow-xl w-96" href={`/users/${user.id}`}>
 	<div class="card-body">
 		<div class="flex gap-2 items-center">
 			<div class="align-middle"><UserIcon {user} /></div>
