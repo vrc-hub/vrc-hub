@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { Globe, Menu, Search, Users2 } from 'lucide-svelte';
+	import { Globe, Home, Users2 } from 'lucide-svelte';
 	import Avatar from '../content/Avatar.svelte';
 	import { getSelfData, getSelfPicture } from '$lib/api/vrchat/impl/self';
 	import { activeAccount } from '$lib/stores/accounts';
 	import Spinner from '../content/Spinner.svelte';
+	import NavBarIcon from './NavBarIcon.svelte';
 </script>
 
 <div class="p-4">
@@ -27,27 +28,16 @@
 			</div>
 		</div>
 		<div class="navbar-center">
-			<div class="tooltip tooltip-bottom" data-tip="Search">
-				<button class="btn btn-ghost btn-circle">
-					<Search />
-				</button>
-			</div>
-			<div class="tooltip tooltip-bottom" data-tip="Worlds">
-				<button class="btn btn-ghost btn-circle">
-					<Globe />
-				</button>
-			</div>
-
-			<div class="tooltip tooltip-bottom" data-tip="Friends">
-				<button class="btn btn-ghost btn-circle">
-					<Users2 />
-				</button>
-			</div>
+			<NavBarIcon tooltip="Home" href="/">
+				<Home />
+			</NavBarIcon>
+			<NavBarIcon tooltip="Worlds" href="/worlds">
+				<Globe />
+			</NavBarIcon>
+			<NavBarIcon tooltip="Friends" href="/friends">
+				<Users2 />
+			</NavBarIcon>
 		</div>
-		<div class="navbar-end">
-			<button class="btn btn-ghost btn-circle">
-				<Menu />
-			</button>
-		</div>
+		<div class="navbar-end" />
 	</div>
 </div>

@@ -17,3 +17,4 @@ export const useClient = () => get(client);
 
 export type CurrentUser = components['schemas']['CurrentUser'];
 export type LimitedUser = components['schemas']['LimitedUser'];
+export type LimitedWord = components['schemas']['LimitedWorld'];
