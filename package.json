@@ -16,8 +16,6 @@
 		"struct": "openapi-typescript https://vrchatapi.github.io/specification/openapi.yaml --output src/lib/api/vrchat/spec.ts"
 	},
 	"devDependencies": {
-		"@melt-ui/pp": "^0.1.2",
-		"@melt-ui/svelte": "^0.55.1",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"@tailwindcss/typography": "^0.5.10",
