@@ -2,7 +2,7 @@
 	export let src: string | undefined;
 	export let fallback = '?';
 
-	export let size = 'w-10';
+	export let size = 'w-9';
 	export let rounded = 'rounded-full';
 
 	let failed = false;

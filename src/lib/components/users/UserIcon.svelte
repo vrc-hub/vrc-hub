@@ -3,6 +3,8 @@
 	import { getIcon, getThumbnail } from '../utils/users';
 
 	export let user: LimitedUser | CurrentUser;
+	export let size = 'w-16';
+
 	let failed = false;
 
 	const getStatus = () => {
@@ -26,7 +28,7 @@
 
 {#if !failed}
 	<div class="avatar {status}">
-		<div class="w-16 rounded-full">
+		<div class="{size} rounded-full">
 			<img
 				src={getThumbnail(getIcon(user))}
 				alt={`${user.displayName}'s avatar`}
@@ -36,7 +38,7 @@
 	</div>
 {:else}
 	<div class="avatar {status} placeholder">
-		<div class="w-16 rounded-full text-neutral-content bg-neutral-focus">
+		<div class="{size} rounded-full text-neutral-content bg-neutral-focus">
 			<span class="text-2xl"> ? </span>
 		</div>
 	</div>
