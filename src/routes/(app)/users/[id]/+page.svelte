@@ -17,8 +17,8 @@
 				<h1 class="text-4xl font-bold">
 					{data.friend.displayName}
 				</h1>
-				<p class="text-xl">{getStatus(data.friend)}</p>
 				<UserTags user={data.friend} />
+				<p class="text-xl">{getStatus(data.friend)}</p>
 			</div>
 		</div>
 	</div>
