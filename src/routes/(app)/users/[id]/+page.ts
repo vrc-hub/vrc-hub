@@ -3,13 +3,22 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
-	const { data, error: err } = await useClient().GET('/users/{userId}', {
-		params: { path: { userId: params.id } }
-	});
-	if (err) {
-		throw error(404, 'User with given ID not found or unauthorized to fetch this user.');
-	}
+	const userRequest = useClient()
+		.GET('/users/{userId}', {
+			params: { path: { userId: params.id } }
+		})
+		.then((request) => {
+			if (request.error) {
+				throw error(
+					404,
+					'User with the given ID is not found or you do not have the permissions to view this profile.'
+				);
+			}
+			return request;
+		});
+	const worldsRequest = useClient().GET('/worlds', { params: { query: { userId: params.id } } });
 	return {
-		friend: data
+		user: (await userRequest).data,
+		worlds: (await worldsRequest).data || []
 	};
 };

@@ -13,11 +13,11 @@
 			<div class="align-middle"><UserIcon {user} /></div>
 			<div class="flex flex-col">
 				<span class="text-lg line-clamp-1">{user.displayName}</span>
-				<span class="line-clamp-1">
-					{getStatus(user)}
-				</span>
 				<span>
 					<UserTags {user} showTrustRank={false} />
+				</span>
+				<span class="line-clamp-1">
+					{getStatus(user)}
 				</span>
 			</div>
 		</div>
