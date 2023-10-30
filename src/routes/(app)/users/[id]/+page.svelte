@@ -2,7 +2,7 @@
 	import UserIcon from '$lib/components/users/UserIcon.svelte';
 	import UserTags from '$lib/components/users/UserTags.svelte';
 	import { getDaysSince } from '$lib/components/utils/date';
-	import { getLanguages, getStatus } from '$lib/components/utils/users';
+	import { getStatus } from '$lib/components/utils/users';
 	import WorldCard from '$lib/components/worlds/WorldCard.svelte';
 	import { Calendar, Languages, MonitorSmartphone } from 'lucide-svelte';
 	import type { PageData } from './$types';
@@ -29,7 +29,7 @@
 			</div>
 			<div class="ml-auto">Buttons here</div>
 		</div>
-		<div class="stats shadow my-4">
+		<div class="stats stats-vertical lg:stats-horizontal shadow my-4">
 			<div class="stat">
 				<div class="stat-figure text-primary">
 					<Calendar />
@@ -57,7 +57,7 @@
 					<Languages />
 				</div>
 				<div class="stat-title">Languages</div>
-				<div class="stat-value">{getLanguages(data.user)}</div>
+				<div class="stat-value">TODO</div>
 				<div class="stat-desc">(Todo)</div>
 			</div>
 		</div>
