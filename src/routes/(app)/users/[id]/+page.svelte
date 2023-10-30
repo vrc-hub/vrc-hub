@@ -1,11 +1,17 @@
 <script lang="ts">
 	import UserIcon from '$lib/components/users/UserIcon.svelte';
 	import UserTags from '$lib/components/users/UserTags.svelte';
-	import { getStatus } from '$lib/components/utils/users';
+	import { getDaysSince } from '$lib/components/utils/date';
+	import { getLanguages, getStatus } from '$lib/components/utils/users';
 	import WorldCard from '$lib/components/worlds/WorldCard.svelte';
+	import { Calendar, Languages, MonitorSmartphone } from 'lucide-svelte';
 	import type { PageData } from './$types';
+	import { formatDate, formatNumber } from '$lib/components/utils/text';
 
 	export let data: PageData;
+
+	$: joinedDate = new Date(data.user.date_joined);
+	$: platform = data.user.last_platform;
 </script>
 
 <div class="card bg-base-200 shadow-xl">
@@ -20,6 +26,39 @@
 				</h1>
 				<UserTags user={data.user} />
 				<p class="text-xl">{getStatus(data.user)}</p>
+			</div>
+			<div class="ml-auto">Buttons here</div>
+		</div>
+		<div class="stats shadow my-4">
+			<div class="stat">
+				<div class="stat-figure text-primary">
+					<Calendar />
+				</div>
+				<div class="stat-title">Days registered</div>
+				<div class="stat-value">{formatNumber(getDaysSince(joinedDate))}</div>
+				<div class="stat-desc">Since {formatDate(new Date(data.user.date_joined))}</div>
+			</div>
+			<div class="stat">
+				<div class="stat-figure text-primary">
+					<MonitorSmartphone />
+				</div>
+				<div class="stat-title">Platform</div>
+				<div class="stat-value">
+					{#if platform === 'standalonewindows'}
+						Windows
+					{:else}
+						Quest
+					{/if}
+				</div>
+				<div class="stat-desc">Since request</div>
+			</div>
+			<div class="stat">
+				<div class="stat-figure text-primary">
+					<Languages />
+				</div>
+				<div class="stat-title">Languages</div>
+				<div class="stat-value">{getLanguages(data.user)}</div>
+				<div class="stat-desc">(Todo)</div>
 			</div>
 		</div>
 		{#if data.worlds.length}
