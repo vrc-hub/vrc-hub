@@ -4,7 +4,7 @@
 	import { getDaysSince } from '$lib/components/utils/date';
 	import { getStatus } from '$lib/components/utils/users';
 	import WorldCard from '$lib/components/worlds/WorldCard.svelte';
-	import { Calendar, Languages, MonitorSmartphone } from 'lucide-svelte';
+	import { Calendar, Languages, Minus, MonitorSmartphone, Plus, X } from 'lucide-svelte';
 	import type { PageData } from './$types';
 	import { formatDate, formatNumber } from '$lib/components/utils/text';
 
@@ -27,11 +27,30 @@
 				<UserTags user={data.user} />
 				<p class="text-xl">{getStatus(data.user)}</p>
 			</div>
-			<div class="ml-auto">Buttons here</div>
+			<div class="ml-auto">
+				{#if data.user.isFriend}
+					<div class="tooltip tooltip-bottom" data-tip="Remove friend">
+						<button class="btn btn-outline btn-circle" on:click>
+							<Minus />
+						</button>
+					</div>
+				{:else}
+					<div class="tooltip tooltip-bottom" data-tip="Add friend">
+						<button class="btn btn-outline btn-circle" on:click>
+							<Plus />
+						</button>
+					</div>
+				{/if}
+				<div class="tooltip tooltip-bottom" data-tip="Block">
+					<button class="btn btn-outline btn-circle" on:click>
+						<X />
+					</button>
+				</div>
+			</div>
 		</div>
 		<div class="stats stats-vertical lg:stats-horizontal shadow my-4">
 			<div class="stat">
-				<div class="stat-figure text-primary">
+				<div class="stat-figure">
 					<Calendar />
 				</div>
 				<div class="stat-title">Days registered</div>
@@ -39,7 +58,7 @@
 				<div class="stat-desc">Since {formatDate(new Date(data.user.date_joined))}</div>
 			</div>
 			<div class="stat">
-				<div class="stat-figure text-primary">
+				<div class="stat-figure">
 					<MonitorSmartphone />
 				</div>
 				<div class="stat-title">Platform</div>
@@ -53,7 +72,7 @@
 				<div class="stat-desc">Since request</div>
 			</div>
 			<div class="stat">
-				<div class="stat-figure text-primary">
+				<div class="stat-figure">
 					<Languages />
 				</div>
 				<div class="stat-title">Languages</div>
@@ -61,6 +80,11 @@
 				<div class="stat-desc">(Todo)</div>
 			</div>
 		</div>
+		{#if data.user.bio}
+			<h2 class="text-2xl font-semibold pt-4 pl-2">Bio</h2>
+			<hr class="p-2" />
+			{data.user.bio}
+		{/if}
 		{#if data.worlds.length}
 			<h2 class="text-2xl font-semibold pt-4 pl-2">Worlds</h2>
 			<hr class="p-2" />
