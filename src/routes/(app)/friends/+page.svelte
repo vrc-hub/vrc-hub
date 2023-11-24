@@ -1,8 +1,8 @@
 <script lang="ts">
 	import UserCard from '$lib/components/users/UserCard.svelte';
-	import { nameSort } from '$lib/components/utils/users';
 	import { activeAccount } from '$lib/stores/accounts';
 	import { friends, refreshFriends } from '$lib/stores/friends';
+	import { nameSort } from '$lib/utils/users';
 	import { ChevronsDownUp, ChevronsUpDown, RefreshCw } from 'lucide-svelte';
 	import { derived } from 'svelte/store';
 	import { slide } from 'svelte/transition';
@@ -21,7 +21,7 @@
 
 <div class="flex items-center p-4">
 	<div>
-		<button class="btn btn-ghost btn-circle" on:click={() => (collapseOnline = !collapseOnline)}>
+		<button class="btn btn-circle" on:click={() => (collapseOnline = !collapseOnline)}>
 			{#if collapseOnline}
 				<ChevronsUpDown />
 			{:else}
@@ -31,7 +31,7 @@
 	</div>
 	<h1 class="text-2xl font-semibold mx-auto">Online ({$onlineFriends.length})</h1>
 	<div>
-		<button class="btn btn-ghost btn-circle" on:click={() => refreshFriends($activeAccount)}>
+		<button class="btn btn-circle" on:click={() => refreshFriends($activeAccount)}>
 			<RefreshCw />
 		</button>
 	</div>
@@ -46,7 +46,7 @@
 
 <div class="flex items-center p-4">
 	<div>
-		<button class="btn btn-ghost btn-circle" on:click={() => (collapseOffline = !collapseOffline)}>
+		<button class="btn btn-circle" on:click={() => (collapseOffline = !collapseOffline)}>
 			{#if collapseOffline}
 				<ChevronsUpDown />
 			{:else}
@@ -56,7 +56,7 @@
 	</div>
 	<h1 class="text-2xl font-semibold mx-auto">Offline ({$offlineFriends.length})</h1>
 	<div>
-		<button class="btn btn-ghost btn-circle" on:click={() => refreshFriends($activeAccount)}>
+		<button class="btn btn-circle" on:click={() => refreshFriends($activeAccount)}>
 			<RefreshCw />
 		</button>
 	</div>
