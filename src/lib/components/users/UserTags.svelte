@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CurrentUser, LimitedUser } from '$lib/api/vrchat';
+	import { getTrustRank, hasVRCPlus, isContributor, isModerator } from '$lib/utils/users';
 	import { Braces, Gavel, MessageSquarePlus, Shield } from 'lucide-svelte';
-	import { getTrustRank, hasVRCPlus, isContributor, isModerator } from '../utils/users';
 
 	export let user: LimitedUser | CurrentUser;
 

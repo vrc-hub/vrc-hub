@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CurrentUser, LimitedUser } from '$lib/api/vrchat';
-	import { getIcon, getThumbnail } from '../utils/users';
+	import { getIcon, getThumbnail } from '$lib/utils/users';
 
 	export let user: LimitedUser | CurrentUser;
 	export let size = 'w-16';

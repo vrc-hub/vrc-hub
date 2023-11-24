@@ -1,8 +1,8 @@
 <script lang="ts">
 	import UserCard from '$lib/components/users/UserCard.svelte';
-	import { nameSort } from '$lib/components/utils/users';
 	import { activeAccount } from '$lib/stores/accounts';
 	import { friends, refreshFriends } from '$lib/stores/friends';
+	import { nameSort } from '$lib/utils/users';
 	import { ChevronsDownUp, ChevronsUpDown, RefreshCw } from 'lucide-svelte';
 	import { derived } from 'svelte/store';
 	import { slide } from 'svelte/transition';

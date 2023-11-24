@@ -1,12 +1,12 @@
 <script lang="ts">
 	import UserIcon from '$lib/components/users/UserIcon.svelte';
 	import UserTags from '$lib/components/users/UserTags.svelte';
-	import { getDaysSince } from '$lib/components/utils/date';
-	import { getStatus } from '$lib/components/utils/users';
 	import WorldCard from '$lib/components/worlds/WorldCard.svelte';
 	import { Calendar, Languages, Minus, MonitorSmartphone, Plus, X } from 'lucide-svelte';
 	import type { PageData } from './$types';
-	import { formatDate, formatNumber } from '$lib/components/utils/text';
+	import { getStatus } from '$lib/utils/users';
+	import { formatDate, formatNumber } from '$lib/utils/text';
+	import { getDaysSince } from '$lib/utils/date';
 
 	export let data: PageData;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CurrentUser, LimitedUser } from '$lib/api/vrchat';
-	import { getStatus } from '../utils/users';
+	import { getStatus } from '$lib/utils/users';
 	import UserIcon from './UserIcon.svelte';
 	import UserTags from './UserTags.svelte';
 

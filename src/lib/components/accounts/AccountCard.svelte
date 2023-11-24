@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { accounts, type Account, activeAccount } from '$lib/stores/accounts';
 	import { ArrowRight, X } from 'lucide-svelte';
-	import Spinner from '../content/Spinner.svelte';
-	import Avatar from '../content/Avatar.svelte';
 	import { get } from 'svelte/store';
 	import { goto } from '$app/navigation';
 	import { useClient } from '$lib/api/vrchat';
+	import Spinner from '../content/Spinner.svelte';
+	import Avatar from '../content/Avatar.svelte';
 
 	export let account: Account;
 
